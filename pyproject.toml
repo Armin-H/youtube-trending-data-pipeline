@@ -1,0 +1,31 @@
+[project]
+name = "youtube-trending-data-pipeline"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "boto3>=1.42.88",
+    "kaggle>=2.0.1",
+    "python-dotenv>=1.2.2",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"] # Error, Flake8, Isort, Upgrade rules
+ignore = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[dependency-groups]
+dev = [
+    "moto[m3]>=5.1.22",
+    "mypy>=1.20.1",
+    "pytest>=9.0.3",
+    "ruff>=0.15.10",
+]
