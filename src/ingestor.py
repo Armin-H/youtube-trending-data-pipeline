@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 from kaggle.api.kaggle_api_extended import KaggleApi
 from kagglesdk.datasets.types.dataset_api_service import ApiGetDatasetRequest
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-logger = logging.getLogger(__name__)
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 
 def get_dataset_current_version(dataset_id: str, api: KaggleApi | None = None) -> int:

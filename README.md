@@ -13,7 +13,10 @@ export ECR_URI="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO
 **Build**
 
 ```bash
-docker build --platform linux/amd64 -t "${ECR_URI}:${IMAGE_TAG}" .
+docker build --platform linux/amd64 \
+  --provenance=false \
+  --sbom=false \
+  -t "${ECR_URI}:${IMAGE_TAG}" .
 ```
 
 **ECR login**
